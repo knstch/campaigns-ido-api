@@ -1,0 +1,164 @@
+syntax = "proto3";
+package campaigns.public;
+option go_package = "./";
+
+service Campaigns {
+  rpc CreateCampaign(CreateCampaignRequest) returns (CreateCampaignResponse);
+  rpc GetCampaignsList(GetCampaignsListRequest) returns (GetCampaignsListResponse);
+  rpc DepositTokensToSale(DepositTokensToSaleRequest) returns (DepositTokensToSaleResponse);
+  rpc JoinIdo(JoinIdoRequest) returns (JoinIdoResponse);
+  rpc Claim(ClaimRequest) returns (ClaimResponse);
+  rpc Refund(RefundRequest) returns (RefundResponse);
+  rpc WithdrawFunds(WithdrawFundsRequest) returns (WithdrawFundsResponse);
+  rpc CloseCampaign(CloseCampaignRequest) returns (CloseCampaignResponse);
+  rpc WithdrawUnsoldTokens(WithdrawUnsoldTokensRequest) returns (WithdrawUnsoldTokensResponse);
+  rpc DeleteCampaign(DeleteCampaignRequest) returns (DeleteCampaignResponse);
+}
+
+enum CampaignStatus {
+  CAMPAIGN_STATUS_UNDEFINED = 0;
+  CAMPAIGN_STATUS_TOKENS_NOT_DEPOSITED = 1;
+  CAMPAIGN_STATUS_WAITING_FOR_START = 2;
+  CAMPAIGN_STATUS_SALE_STARTED = 3;
+  CAMPAIGN_STATUS_SALE_ENDED_SUCCESSFUL = 4;
+  CAMPAIGN_STATUS_SALE_ENDED_FAILED = 5;
+  CAMPAIGN_STATUS_SALE_CLOSED_BY_OWNER = 6;
+  CAMPAIGN_STATUS_FUNDS_WITHDRAWN = 7;
+}
+
+message CreateCampaignRequest {
+  uint64 campaign_id = 1;
+  string authority_pubkey = 2;
+  string token_mint_pubkey = 3;
+  int64 cliff = 4;
+  uint32 available_tokens_after_cliff_ptc = 5;
+  int64 start_sale_time = 6;
+  int64 end_sale_time = 7;
+  int64 vesting_end_time = 8;
+  uint64 price_per_token_lamports = 9;
+  int64 allocation_size = 10;
+  uint64 soft_cap = 11;
+  uint64 hard_cap = 12;
+  uint64 available_allocations_per_participant = 13;
+}
+
+message CreateCampaignResponse {
+  uint64 id = 1;
+}
+
+message GetCampaignsListRequest {
+  uint64 id = 1;
+  uint64 campaign_id = 2;
+  string authority_pubkey = 3;
+  string token_mint_pubkey = 4;
+  int64 cliff_from = 5;
+  int64 cliff_to = 6;
+  int32 available_tokens_after_cliff_ptc_from = 7;
+  int32 available_tokens_after_cliff_ptc_to = 8;
+  int64 start_sale_time = 9;
+  int64 end_sale_time = 10;
+  int64 vesting_end_time_from = 11;
+  int64 vesting_end_time_to = 12;
+  uint64 price_per_token_lamports_from = 13;
+  uint64 price_per_token_lamports_to = 14;
+  int64 allocation_size_from = 15;
+  int64 allocation_size_to = 16;
+  uint64 soft_cap_from = 17;
+  uint64 soft_cap_to = 18;
+  uint64 hard_cap_from = 19;
+  uint64 hard_cap_to = 20;
+  uint64 available_allocations_per_participant_from = 21;
+  uint64 available_allocations_per_participant_to = 22;
+  CampaignStatus campaign_status = 23;
+  uint64 participant_id = 24;
+  int64 created_at_from = 25;
+  int64 created_at_to = 26;
+  int64 updated_at_from = 27;
+  int64 updated_at_to = 28;
+  uint32 page = 29;
+  uint32 limit = 30;
+}
+
+message GetCampaignsListResponse {
+  repeated Campaign campaigns = 1;
+  Pagination pagination = 2;
+}
+
+message Pagination {
+  uint64 total_count = 1;
+  uint32 total_pages = 2;
+  uint32 current_page = 3;
+  uint32 limit = 4;
+}
+
+message Campaign {
+  uint64 id = 1;
+  uint64 campaign_id = 2;
+  string authority_pubkey = 3;
+  string token_mint_pubkey = 4;
+  int64 cliff = 5;
+  uint32 available_tokens_after_cliff_ptc = 6;
+  int64 start_sale_time = 7;
+  int64 end_sale_time = 8;
+  int64 vesting_end_time = 9;
+  uint64 price_per_token_lamports = 10;
+  int64 allocation_size = 11;
+  uint64 soft_cap = 12;
+  uint64 hard_cap = 13;
+  uint64 available_allocations_per_participant = 14;
+  CampaignStatus campaign_status = 15;
+  int64 created_at = 16;
+}
+
+message DepositTokensToSaleRequest {
+  uint64 campaign_id = 1;
+}
+
+message DepositTokensToSaleResponse {}
+
+message JoinIdoRequest {
+  uint64 campaign_id = 1;
+  string participant_pubkey = 2;
+  uint64 number_of_allocations = 3;
+  int64 amount = 4;
+  int64 paid_lamports = 5;
+}
+
+message JoinIdoResponse {}
+
+message ClaimRequest {
+  uint64 campaign_id = 1;
+  int64 claimed_amount = 2;
+}
+
+message ClaimResponse {}
+
+message RefundRequest {
+  uint64 campaign_id = 1;
+}
+
+message RefundResponse {}
+
+message WithdrawFundsRequest {
+  uint64 campaign_id = 1;
+}
+
+message WithdrawFundsResponse {}
+
+message CloseCampaignRequest {
+  uint64 campaign_id = 1;
+}
+
+message CloseCampaignResponse {}
+
+message WithdrawUnsoldTokensRequest {
+  uint64 campaign_id = 1;
+}
+
+message WithdrawUnsoldTokensResponse {}
+
+message DeleteCampaignRequest {
+  uint64 campaign_id = 1;
+}
+
+message DeleteCampaignResponse {}
