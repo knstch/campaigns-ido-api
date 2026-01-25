@@ -110,6 +110,9 @@ message Campaign {
   uint64 available_allocations_per_participant = 14;
   CampaignStatus campaign_status = 15;
   int64 created_at = 16;
+  uint32 total_participants = 17;
+  uint64 total_claimed = 18;
+  uint64 total_sold = 19;
 }
 
 message DepositTokensToSaleRequest {
