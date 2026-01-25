@@ -13,6 +13,8 @@ service Campaigns {
   rpc CloseCampaign(CloseCampaignRequest) returns (CloseCampaignResponse);
   rpc WithdrawUnsoldTokens(WithdrawUnsoldTokensRequest) returns (WithdrawUnsoldTokensResponse);
   rpc DeleteCampaign(DeleteCampaignRequest) returns (DeleteCampaignResponse);
+  rpc UpdateCampaignStatus(UpdateCampaignStatusRequest) returns (UpdateCampaignStatusResponse);
+  rpc CloseCampaignIfSoftCapNotReached(CloseCampaignIfSoftCapNotReachedRequest) returns (CloseCampaignIfSoftCapNotReachedResponse);
 }
 
 enum CampaignStatus {
@@ -162,3 +164,16 @@ message DeleteCampaignRequest {
 }
 
 message DeleteCampaignResponse {}
+
+message UpdateCampaignStatusRequest {
+  uint64 campaign_id = 1;
+  CampaignStatus status = 2;
+}
+
+message UpdateCampaignStatusResponse {}
+
+message CloseCampaignIfSoftCapNotReachedRequest {
+  uint64 campaign_id = 1;
+}
+
+message CloseCampaignIfSoftCapNotReachedResponse {}

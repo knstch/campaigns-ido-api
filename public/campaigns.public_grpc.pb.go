@@ -19,16 +19,18 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Campaigns_CreateCampaign_FullMethodName       = "/campaigns.public.Campaigns/CreateCampaign"
-	Campaigns_GetCampaignsList_FullMethodName     = "/campaigns.public.Campaigns/GetCampaignsList"
-	Campaigns_DepositTokensToSale_FullMethodName  = "/campaigns.public.Campaigns/DepositTokensToSale"
-	Campaigns_JoinIdo_FullMethodName              = "/campaigns.public.Campaigns/JoinIdo"
-	Campaigns_Claim_FullMethodName                = "/campaigns.public.Campaigns/Claim"
-	Campaigns_Refund_FullMethodName               = "/campaigns.public.Campaigns/Refund"
-	Campaigns_WithdrawFunds_FullMethodName        = "/campaigns.public.Campaigns/WithdrawFunds"
-	Campaigns_CloseCampaign_FullMethodName        = "/campaigns.public.Campaigns/CloseCampaign"
-	Campaigns_WithdrawUnsoldTokens_FullMethodName = "/campaigns.public.Campaigns/WithdrawUnsoldTokens"
-	Campaigns_DeleteCampaign_FullMethodName       = "/campaigns.public.Campaigns/DeleteCampaign"
+	Campaigns_CreateCampaign_FullMethodName                   = "/campaigns.public.Campaigns/CreateCampaign"
+	Campaigns_GetCampaignsList_FullMethodName                 = "/campaigns.public.Campaigns/GetCampaignsList"
+	Campaigns_DepositTokensToSale_FullMethodName              = "/campaigns.public.Campaigns/DepositTokensToSale"
+	Campaigns_JoinIdo_FullMethodName                          = "/campaigns.public.Campaigns/JoinIdo"
+	Campaigns_Claim_FullMethodName                            = "/campaigns.public.Campaigns/Claim"
+	Campaigns_Refund_FullMethodName                           = "/campaigns.public.Campaigns/Refund"
+	Campaigns_WithdrawFunds_FullMethodName                    = "/campaigns.public.Campaigns/WithdrawFunds"
+	Campaigns_CloseCampaign_FullMethodName                    = "/campaigns.public.Campaigns/CloseCampaign"
+	Campaigns_WithdrawUnsoldTokens_FullMethodName             = "/campaigns.public.Campaigns/WithdrawUnsoldTokens"
+	Campaigns_DeleteCampaign_FullMethodName                   = "/campaigns.public.Campaigns/DeleteCampaign"
+	Campaigns_UpdateCampaignStatus_FullMethodName             = "/campaigns.public.Campaigns/UpdateCampaignStatus"
+	Campaigns_CloseCampaignIfSoftCapNotReached_FullMethodName = "/campaigns.public.Campaigns/CloseCampaignIfSoftCapNotReached"
 )
 
 // CampaignsClient is the client API for Campaigns service.
@@ -45,6 +47,8 @@ type CampaignsClient interface {
 	CloseCampaign(ctx context.Context, in *CloseCampaignRequest, opts ...grpc.CallOption) (*CloseCampaignResponse, error)
 	WithdrawUnsoldTokens(ctx context.Context, in *WithdrawUnsoldTokensRequest, opts ...grpc.CallOption) (*WithdrawUnsoldTokensResponse, error)
 	DeleteCampaign(ctx context.Context, in *DeleteCampaignRequest, opts ...grpc.CallOption) (*DeleteCampaignResponse, error)
+	UpdateCampaignStatus(ctx context.Context, in *UpdateCampaignStatusRequest, opts ...grpc.CallOption) (*UpdateCampaignStatusResponse, error)
+	CloseCampaignIfSoftCapNotReached(ctx context.Context, in *CloseCampaignIfSoftCapNotReachedRequest, opts ...grpc.CallOption) (*CloseCampaignIfSoftCapNotReachedResponse, error)
 }
 
 type campaignsClient struct {
@@ -155,6 +159,26 @@ func (c *campaignsClient) DeleteCampaign(ctx context.Context, in *DeleteCampaign
 	return out, nil
 }
 
+func (c *campaignsClient) UpdateCampaignStatus(ctx context.Context, in *UpdateCampaignStatusRequest, opts ...grpc.CallOption) (*UpdateCampaignStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateCampaignStatusResponse)
+	err := c.cc.Invoke(ctx, Campaigns_UpdateCampaignStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *campaignsClient) CloseCampaignIfSoftCapNotReached(ctx context.Context, in *CloseCampaignIfSoftCapNotReachedRequest, opts ...grpc.CallOption) (*CloseCampaignIfSoftCapNotReachedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseCampaignIfSoftCapNotReachedResponse)
+	err := c.cc.Invoke(ctx, Campaigns_CloseCampaignIfSoftCapNotReached_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CampaignsServer is the server API for Campaigns service.
 // All implementations must embed UnimplementedCampaignsServer
 // for forward compatibility.
@@ -169,6 +193,8 @@ type CampaignsServer interface {
 	CloseCampaign(context.Context, *CloseCampaignRequest) (*CloseCampaignResponse, error)
 	WithdrawUnsoldTokens(context.Context, *WithdrawUnsoldTokensRequest) (*WithdrawUnsoldTokensResponse, error)
 	DeleteCampaign(context.Context, *DeleteCampaignRequest) (*DeleteCampaignResponse, error)
+	UpdateCampaignStatus(context.Context, *UpdateCampaignStatusRequest) (*UpdateCampaignStatusResponse, error)
+	CloseCampaignIfSoftCapNotReached(context.Context, *CloseCampaignIfSoftCapNotReachedRequest) (*CloseCampaignIfSoftCapNotReachedResponse, error)
 	mustEmbedUnimplementedCampaignsServer()
 }
 
@@ -208,6 +234,12 @@ func (UnimplementedCampaignsServer) WithdrawUnsoldTokens(context.Context, *Withd
 }
 func (UnimplementedCampaignsServer) DeleteCampaign(context.Context, *DeleteCampaignRequest) (*DeleteCampaignResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteCampaign not implemented")
+}
+func (UnimplementedCampaignsServer) UpdateCampaignStatus(context.Context, *UpdateCampaignStatusRequest) (*UpdateCampaignStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCampaignStatus not implemented")
+}
+func (UnimplementedCampaignsServer) CloseCampaignIfSoftCapNotReached(context.Context, *CloseCampaignIfSoftCapNotReachedRequest) (*CloseCampaignIfSoftCapNotReachedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CloseCampaignIfSoftCapNotReached not implemented")
 }
 func (UnimplementedCampaignsServer) mustEmbedUnimplementedCampaignsServer() {}
 func (UnimplementedCampaignsServer) testEmbeddedByValue()                   {}
@@ -410,6 +442,42 @@ func _Campaigns_DeleteCampaign_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Campaigns_UpdateCampaignStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCampaignStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CampaignsServer).UpdateCampaignStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Campaigns_UpdateCampaignStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CampaignsServer).UpdateCampaignStatus(ctx, req.(*UpdateCampaignStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Campaigns_CloseCampaignIfSoftCapNotReached_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseCampaignIfSoftCapNotReachedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CampaignsServer).CloseCampaignIfSoftCapNotReached(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Campaigns_CloseCampaignIfSoftCapNotReached_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CampaignsServer).CloseCampaignIfSoftCapNotReached(ctx, req.(*CloseCampaignIfSoftCapNotReachedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Campaigns_ServiceDesc is the grpc.ServiceDesc for Campaigns service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -456,6 +524,14 @@ var Campaigns_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteCampaign",
 			Handler:    _Campaigns_DeleteCampaign_Handler,
+		},
+		{
+			MethodName: "UpdateCampaignStatus",
+			Handler:    _Campaigns_UpdateCampaignStatus_Handler,
+		},
+		{
+			MethodName: "CloseCampaignIfSoftCapNotReached",
+			Handler:    _Campaigns_CloseCampaignIfSoftCapNotReached_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
