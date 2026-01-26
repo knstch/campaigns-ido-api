@@ -1765,6 +1765,94 @@ func (*CloseCampaignIfSoftCapNotReachedResponse) Descriptor() ([]byte, []int) {
 	return file_campaigns_public_proto_rawDescGZIP(), []int{25}
 }
 
+type GetTrendingCampaignsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Limit         uint32                 `protobuf:"varint,1,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrendingCampaignsRequest) Reset() {
+	*x = GetTrendingCampaignsRequest{}
+	mi := &file_campaigns_public_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrendingCampaignsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrendingCampaignsRequest) ProtoMessage() {}
+
+func (x *GetTrendingCampaignsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_campaigns_public_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrendingCampaignsRequest.ProtoReflect.Descriptor instead.
+func (*GetTrendingCampaignsRequest) Descriptor() ([]byte, []int) {
+	return file_campaigns_public_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *GetTrendingCampaignsRequest) GetLimit() uint32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type GetTrendingCampaignsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Campaigns     []*Campaign            `protobuf:"bytes,1,rep,name=campaigns,proto3" json:"campaigns,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrendingCampaignsResponse) Reset() {
+	*x = GetTrendingCampaignsResponse{}
+	mi := &file_campaigns_public_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrendingCampaignsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrendingCampaignsResponse) ProtoMessage() {}
+
+func (x *GetTrendingCampaignsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_campaigns_public_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrendingCampaignsResponse.ProtoReflect.Descriptor instead.
+func (*GetTrendingCampaignsResponse) Descriptor() ([]byte, []int) {
+	return file_campaigns_public_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetTrendingCampaignsResponse) GetCampaigns() []*Campaign {
+	if x != nil {
+		return x.Campaigns
+	}
+	return nil
+}
+
 var File_campaigns_public_proto protoreflect.FileDescriptor
 
 const file_campaigns_public_proto_rawDesc = "" +
@@ -1913,7 +2001,11 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"'CloseCampaignIfSoftCapNotReachedRequest\x12\x1f\n" +
 	"\vcampaign_id\x18\x01 \x01(\x04R\n" +
 	"campaignId\"*\n" +
-	"(CloseCampaignIfSoftCapNotReachedResponse*\xc3\x02\n" +
+	"(CloseCampaignIfSoftCapNotReachedResponse\"3\n" +
+	"\x1bGetTrendingCampaignsRequest\x12\x14\n" +
+	"\x05limit\x18\x01 \x01(\rR\x05limit\"X\n" +
+	"\x1cGetTrendingCampaignsResponse\x128\n" +
+	"\tcampaigns\x18\x01 \x03(\v2\x1a.campaigns.public.CampaignR\tcampaigns*\xc3\x02\n" +
 	"\x0eCampaignStatus\x12\x1d\n" +
 	"\x19CAMPAIGN_STATUS_UNDEFINED\x10\x00\x12(\n" +
 	"$CAMPAIGN_STATUS_TOKENS_NOT_DEPOSITED\x10\x01\x12%\n" +
@@ -1922,7 +2014,8 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"%CAMPAIGN_STATUS_SALE_ENDED_SUCCESSFUL\x10\x04\x12%\n" +
 	"!CAMPAIGN_STATUS_SALE_ENDED_FAILED\x10\x05\x12(\n" +
 	"$CAMPAIGN_STATUS_SALE_CLOSED_BY_OWNER\x10\x06\x12#\n" +
-	"\x1fCAMPAIGN_STATUS_FUNDS_WITHDRAWN\x10\a2\xe9\t\n" +
+	"\x1fCAMPAIGN_STATUS_FUNDS_WITHDRAWN\x10\a2\xe0\n" +
+	"\n" +
 	"\tCampaigns\x12c\n" +
 	"\x0eCreateCampaign\x12'.campaigns.public.CreateCampaignRequest\x1a(.campaigns.public.CreateCampaignResponse\x12i\n" +
 	"\x10GetCampaignsList\x12).campaigns.public.GetCampaignsListRequest\x1a*.campaigns.public.GetCampaignsListResponse\x12r\n" +
@@ -1935,7 +2028,8 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"\x14WithdrawUnsoldTokens\x12-.campaigns.public.WithdrawUnsoldTokensRequest\x1a..campaigns.public.WithdrawUnsoldTokensResponse\x12c\n" +
 	"\x0eDeleteCampaign\x12'.campaigns.public.DeleteCampaignRequest\x1a(.campaigns.public.DeleteCampaignResponse\x12u\n" +
 	"\x14UpdateCampaignStatus\x12-.campaigns.public.UpdateCampaignStatusRequest\x1a..campaigns.public.UpdateCampaignStatusResponse\x12\x99\x01\n" +
-	" CloseCampaignIfSoftCapNotReached\x129.campaigns.public.CloseCampaignIfSoftCapNotReachedRequest\x1a:.campaigns.public.CloseCampaignIfSoftCapNotReachedResponseB\x04Z\x02./b\x06proto3"
+	" CloseCampaignIfSoftCapNotReached\x129.campaigns.public.CloseCampaignIfSoftCapNotReachedRequest\x1a:.campaigns.public.CloseCampaignIfSoftCapNotReachedResponse\x12u\n" +
+	"\x14GetTrendingCampaigns\x12-.campaigns.public.GetTrendingCampaignsRequest\x1a..campaigns.public.GetTrendingCampaignsResponseB\x04Z\x02./b\x06proto3"
 
 var (
 	file_campaigns_public_proto_rawDescOnce sync.Once
@@ -1950,7 +2044,7 @@ func file_campaigns_public_proto_rawDescGZIP() []byte {
 }
 
 var file_campaigns_public_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_campaigns_public_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_campaigns_public_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
 var file_campaigns_public_proto_goTypes = []any{
 	(CampaignStatus)(0),                              // 0: campaigns.public.CampaignStatus
 	(*CreateCampaignRequest)(nil),                    // 1: campaigns.public.CreateCampaignRequest
@@ -1979,6 +2073,8 @@ var file_campaigns_public_proto_goTypes = []any{
 	(*UpdateCampaignStatusResponse)(nil),             // 24: campaigns.public.UpdateCampaignStatusResponse
 	(*CloseCampaignIfSoftCapNotReachedRequest)(nil),  // 25: campaigns.public.CloseCampaignIfSoftCapNotReachedRequest
 	(*CloseCampaignIfSoftCapNotReachedResponse)(nil), // 26: campaigns.public.CloseCampaignIfSoftCapNotReachedResponse
+	(*GetTrendingCampaignsRequest)(nil),              // 27: campaigns.public.GetTrendingCampaignsRequest
+	(*GetTrendingCampaignsResponse)(nil),             // 28: campaigns.public.GetTrendingCampaignsResponse
 }
 var file_campaigns_public_proto_depIdxs = []int32{
 	0,  // 0: campaigns.public.GetCampaignsListRequest.campaign_status:type_name -> campaigns.public.CampaignStatus
@@ -1986,35 +2082,38 @@ var file_campaigns_public_proto_depIdxs = []int32{
 	5,  // 2: campaigns.public.GetCampaignsListResponse.pagination:type_name -> campaigns.public.Pagination
 	0,  // 3: campaigns.public.Campaign.campaign_status:type_name -> campaigns.public.CampaignStatus
 	0,  // 4: campaigns.public.UpdateCampaignStatusRequest.status:type_name -> campaigns.public.CampaignStatus
-	1,  // 5: campaigns.public.Campaigns.CreateCampaign:input_type -> campaigns.public.CreateCampaignRequest
-	3,  // 6: campaigns.public.Campaigns.GetCampaignsList:input_type -> campaigns.public.GetCampaignsListRequest
-	7,  // 7: campaigns.public.Campaigns.DepositTokensToSale:input_type -> campaigns.public.DepositTokensToSaleRequest
-	9,  // 8: campaigns.public.Campaigns.JoinIdo:input_type -> campaigns.public.JoinIdoRequest
-	11, // 9: campaigns.public.Campaigns.Claim:input_type -> campaigns.public.ClaimRequest
-	13, // 10: campaigns.public.Campaigns.Refund:input_type -> campaigns.public.RefundRequest
-	15, // 11: campaigns.public.Campaigns.WithdrawFunds:input_type -> campaigns.public.WithdrawFundsRequest
-	17, // 12: campaigns.public.Campaigns.CloseCampaign:input_type -> campaigns.public.CloseCampaignRequest
-	19, // 13: campaigns.public.Campaigns.WithdrawUnsoldTokens:input_type -> campaigns.public.WithdrawUnsoldTokensRequest
-	21, // 14: campaigns.public.Campaigns.DeleteCampaign:input_type -> campaigns.public.DeleteCampaignRequest
-	23, // 15: campaigns.public.Campaigns.UpdateCampaignStatus:input_type -> campaigns.public.UpdateCampaignStatusRequest
-	25, // 16: campaigns.public.Campaigns.CloseCampaignIfSoftCapNotReached:input_type -> campaigns.public.CloseCampaignIfSoftCapNotReachedRequest
-	2,  // 17: campaigns.public.Campaigns.CreateCampaign:output_type -> campaigns.public.CreateCampaignResponse
-	4,  // 18: campaigns.public.Campaigns.GetCampaignsList:output_type -> campaigns.public.GetCampaignsListResponse
-	8,  // 19: campaigns.public.Campaigns.DepositTokensToSale:output_type -> campaigns.public.DepositTokensToSaleResponse
-	10, // 20: campaigns.public.Campaigns.JoinIdo:output_type -> campaigns.public.JoinIdoResponse
-	12, // 21: campaigns.public.Campaigns.Claim:output_type -> campaigns.public.ClaimResponse
-	14, // 22: campaigns.public.Campaigns.Refund:output_type -> campaigns.public.RefundResponse
-	16, // 23: campaigns.public.Campaigns.WithdrawFunds:output_type -> campaigns.public.WithdrawFundsResponse
-	18, // 24: campaigns.public.Campaigns.CloseCampaign:output_type -> campaigns.public.CloseCampaignResponse
-	20, // 25: campaigns.public.Campaigns.WithdrawUnsoldTokens:output_type -> campaigns.public.WithdrawUnsoldTokensResponse
-	22, // 26: campaigns.public.Campaigns.DeleteCampaign:output_type -> campaigns.public.DeleteCampaignResponse
-	24, // 27: campaigns.public.Campaigns.UpdateCampaignStatus:output_type -> campaigns.public.UpdateCampaignStatusResponse
-	26, // 28: campaigns.public.Campaigns.CloseCampaignIfSoftCapNotReached:output_type -> campaigns.public.CloseCampaignIfSoftCapNotReachedResponse
-	17, // [17:29] is the sub-list for method output_type
-	5,  // [5:17] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	6,  // 5: campaigns.public.GetTrendingCampaignsResponse.campaigns:type_name -> campaigns.public.Campaign
+	1,  // 6: campaigns.public.Campaigns.CreateCampaign:input_type -> campaigns.public.CreateCampaignRequest
+	3,  // 7: campaigns.public.Campaigns.GetCampaignsList:input_type -> campaigns.public.GetCampaignsListRequest
+	7,  // 8: campaigns.public.Campaigns.DepositTokensToSale:input_type -> campaigns.public.DepositTokensToSaleRequest
+	9,  // 9: campaigns.public.Campaigns.JoinIdo:input_type -> campaigns.public.JoinIdoRequest
+	11, // 10: campaigns.public.Campaigns.Claim:input_type -> campaigns.public.ClaimRequest
+	13, // 11: campaigns.public.Campaigns.Refund:input_type -> campaigns.public.RefundRequest
+	15, // 12: campaigns.public.Campaigns.WithdrawFunds:input_type -> campaigns.public.WithdrawFundsRequest
+	17, // 13: campaigns.public.Campaigns.CloseCampaign:input_type -> campaigns.public.CloseCampaignRequest
+	19, // 14: campaigns.public.Campaigns.WithdrawUnsoldTokens:input_type -> campaigns.public.WithdrawUnsoldTokensRequest
+	21, // 15: campaigns.public.Campaigns.DeleteCampaign:input_type -> campaigns.public.DeleteCampaignRequest
+	23, // 16: campaigns.public.Campaigns.UpdateCampaignStatus:input_type -> campaigns.public.UpdateCampaignStatusRequest
+	25, // 17: campaigns.public.Campaigns.CloseCampaignIfSoftCapNotReached:input_type -> campaigns.public.CloseCampaignIfSoftCapNotReachedRequest
+	27, // 18: campaigns.public.Campaigns.GetTrendingCampaigns:input_type -> campaigns.public.GetTrendingCampaignsRequest
+	2,  // 19: campaigns.public.Campaigns.CreateCampaign:output_type -> campaigns.public.CreateCampaignResponse
+	4,  // 20: campaigns.public.Campaigns.GetCampaignsList:output_type -> campaigns.public.GetCampaignsListResponse
+	8,  // 21: campaigns.public.Campaigns.DepositTokensToSale:output_type -> campaigns.public.DepositTokensToSaleResponse
+	10, // 22: campaigns.public.Campaigns.JoinIdo:output_type -> campaigns.public.JoinIdoResponse
+	12, // 23: campaigns.public.Campaigns.Claim:output_type -> campaigns.public.ClaimResponse
+	14, // 24: campaigns.public.Campaigns.Refund:output_type -> campaigns.public.RefundResponse
+	16, // 25: campaigns.public.Campaigns.WithdrawFunds:output_type -> campaigns.public.WithdrawFundsResponse
+	18, // 26: campaigns.public.Campaigns.CloseCampaign:output_type -> campaigns.public.CloseCampaignResponse
+	20, // 27: campaigns.public.Campaigns.WithdrawUnsoldTokens:output_type -> campaigns.public.WithdrawUnsoldTokensResponse
+	22, // 28: campaigns.public.Campaigns.DeleteCampaign:output_type -> campaigns.public.DeleteCampaignResponse
+	24, // 29: campaigns.public.Campaigns.UpdateCampaignStatus:output_type -> campaigns.public.UpdateCampaignStatusResponse
+	26, // 30: campaigns.public.Campaigns.CloseCampaignIfSoftCapNotReached:output_type -> campaigns.public.CloseCampaignIfSoftCapNotReachedResponse
+	28, // 31: campaigns.public.Campaigns.GetTrendingCampaigns:output_type -> campaigns.public.GetTrendingCampaignsResponse
+	19, // [19:32] is the sub-list for method output_type
+	6,  // [6:19] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_campaigns_public_proto_init() }
@@ -2028,7 +2127,7 @@ func file_campaigns_public_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_campaigns_public_proto_rawDesc), len(file_campaigns_public_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   26,
+			NumMessages:   28,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

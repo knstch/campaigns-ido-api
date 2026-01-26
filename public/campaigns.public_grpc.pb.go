@@ -31,6 +31,7 @@ const (
 	Campaigns_DeleteCampaign_FullMethodName                   = "/campaigns.public.Campaigns/DeleteCampaign"
 	Campaigns_UpdateCampaignStatus_FullMethodName             = "/campaigns.public.Campaigns/UpdateCampaignStatus"
 	Campaigns_CloseCampaignIfSoftCapNotReached_FullMethodName = "/campaigns.public.Campaigns/CloseCampaignIfSoftCapNotReached"
+	Campaigns_GetTrendingCampaigns_FullMethodName             = "/campaigns.public.Campaigns/GetTrendingCampaigns"
 )
 
 // CampaignsClient is the client API for Campaigns service.
@@ -49,6 +50,7 @@ type CampaignsClient interface {
 	DeleteCampaign(ctx context.Context, in *DeleteCampaignRequest, opts ...grpc.CallOption) (*DeleteCampaignResponse, error)
 	UpdateCampaignStatus(ctx context.Context, in *UpdateCampaignStatusRequest, opts ...grpc.CallOption) (*UpdateCampaignStatusResponse, error)
 	CloseCampaignIfSoftCapNotReached(ctx context.Context, in *CloseCampaignIfSoftCapNotReachedRequest, opts ...grpc.CallOption) (*CloseCampaignIfSoftCapNotReachedResponse, error)
+	GetTrendingCampaigns(ctx context.Context, in *GetTrendingCampaignsRequest, opts ...grpc.CallOption) (*GetTrendingCampaignsResponse, error)
 }
 
 type campaignsClient struct {
@@ -179,6 +181,16 @@ func (c *campaignsClient) CloseCampaignIfSoftCapNotReached(ctx context.Context, 
 	return out, nil
 }
 
+func (c *campaignsClient) GetTrendingCampaigns(ctx context.Context, in *GetTrendingCampaignsRequest, opts ...grpc.CallOption) (*GetTrendingCampaignsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrendingCampaignsResponse)
+	err := c.cc.Invoke(ctx, Campaigns_GetTrendingCampaigns_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CampaignsServer is the server API for Campaigns service.
 // All implementations must embed UnimplementedCampaignsServer
 // for forward compatibility.
@@ -195,6 +207,7 @@ type CampaignsServer interface {
 	DeleteCampaign(context.Context, *DeleteCampaignRequest) (*DeleteCampaignResponse, error)
 	UpdateCampaignStatus(context.Context, *UpdateCampaignStatusRequest) (*UpdateCampaignStatusResponse, error)
 	CloseCampaignIfSoftCapNotReached(context.Context, *CloseCampaignIfSoftCapNotReachedRequest) (*CloseCampaignIfSoftCapNotReachedResponse, error)
+	GetTrendingCampaigns(context.Context, *GetTrendingCampaignsRequest) (*GetTrendingCampaignsResponse, error)
 	mustEmbedUnimplementedCampaignsServer()
 }
 
@@ -240,6 +253,9 @@ func (UnimplementedCampaignsServer) UpdateCampaignStatus(context.Context, *Updat
 }
 func (UnimplementedCampaignsServer) CloseCampaignIfSoftCapNotReached(context.Context, *CloseCampaignIfSoftCapNotReachedRequest) (*CloseCampaignIfSoftCapNotReachedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CloseCampaignIfSoftCapNotReached not implemented")
+}
+func (UnimplementedCampaignsServer) GetTrendingCampaigns(context.Context, *GetTrendingCampaignsRequest) (*GetTrendingCampaignsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTrendingCampaigns not implemented")
 }
 func (UnimplementedCampaignsServer) mustEmbedUnimplementedCampaignsServer() {}
 func (UnimplementedCampaignsServer) testEmbeddedByValue()                   {}
@@ -478,6 +494,24 @@ func _Campaigns_CloseCampaignIfSoftCapNotReached_Handler(srv interface{}, ctx co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Campaigns_GetTrendingCampaigns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrendingCampaignsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CampaignsServer).GetTrendingCampaigns(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Campaigns_GetTrendingCampaigns_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CampaignsServer).GetTrendingCampaigns(ctx, req.(*GetTrendingCampaignsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Campaigns_ServiceDesc is the grpc.ServiceDesc for Campaigns service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -532,6 +566,10 @@ var Campaigns_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CloseCampaignIfSoftCapNotReached",
 			Handler:    _Campaigns_CloseCampaignIfSoftCapNotReached_Handler,
+		},
+		{
+			MethodName: "GetTrendingCampaigns",
+			Handler:    _Campaigns_GetTrendingCampaigns_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

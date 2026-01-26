@@ -15,6 +15,7 @@ service Campaigns {
   rpc DeleteCampaign(DeleteCampaignRequest) returns (DeleteCampaignResponse);
   rpc UpdateCampaignStatus(UpdateCampaignStatusRequest) returns (UpdateCampaignStatusResponse);
   rpc CloseCampaignIfSoftCapNotReached(CloseCampaignIfSoftCapNotReachedRequest) returns (CloseCampaignIfSoftCapNotReachedResponse);
+  rpc GetTrendingCampaigns(GetTrendingCampaignsRequest) returns (GetTrendingCampaignsResponse);
 }
 
 enum CampaignStatus {
@@ -188,3 +189,11 @@ message CloseCampaignIfSoftCapNotReachedRequest {
 }
 
 message CloseCampaignIfSoftCapNotReachedResponse {}
+
+message GetTrendingCampaignsRequest {
+  uint32 limit = 1;
+}
+
+message GetTrendingCampaignsResponse {
+  repeated Campaign campaigns = 1;
+}
