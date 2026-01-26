@@ -44,6 +44,7 @@ message CreateCampaignRequest {
   uint64 available_allocations_per_participant = 13;
   string campaign_name = 14;
   string description = 15;
+  string ticker = 16;
 }
 
 message CreateCampaignResponse {
@@ -117,6 +118,7 @@ message Campaign {
   uint64 total_sold = 19;
   string campaign_name = 20;
   string description = 21;
+  string ticker = 22;
 }
 
 message DepositTokensToSaleRequest {
