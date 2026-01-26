@@ -42,6 +42,8 @@ message CreateCampaignRequest {
   uint64 soft_cap = 11;
   uint64 hard_cap = 12;
   uint64 available_allocations_per_participant = 13;
+  string campaign_name = 14;
+  string description = 15;
 }
 
 message CreateCampaignResponse {
@@ -113,6 +115,8 @@ message Campaign {
   uint32 total_participants = 17;
   uint64 total_claimed = 18;
   uint64 total_sold = 19;
+  string campaign_name = 20;
+  string description = 21;
 }
 
 message DepositTokensToSaleRequest {

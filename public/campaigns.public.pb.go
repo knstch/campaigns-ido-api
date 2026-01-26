@@ -100,6 +100,8 @@ type CreateCampaignRequest struct {
 	SoftCap                            uint64                 `protobuf:"varint,11,opt,name=soft_cap,json=softCap,proto3" json:"soft_cap,omitempty"`
 	HardCap                            uint64                 `protobuf:"varint,12,opt,name=hard_cap,json=hardCap,proto3" json:"hard_cap,omitempty"`
 	AvailableAllocationsPerParticipant uint64                 `protobuf:"varint,13,opt,name=available_allocations_per_participant,json=availableAllocationsPerParticipant,proto3" json:"available_allocations_per_participant,omitempty"`
+	CampaignName                       string                 `protobuf:"bytes,14,opt,name=campaign_name,json=campaignName,proto3" json:"campaign_name,omitempty"`
+	Description                        string                 `protobuf:"bytes,15,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields                      protoimpl.UnknownFields
 	sizeCache                          protoimpl.SizeCache
 }
@@ -223,6 +225,20 @@ func (x *CreateCampaignRequest) GetAvailableAllocationsPerParticipant() uint64 {
 		return x.AvailableAllocationsPerParticipant
 	}
 	return 0
+}
+
+func (x *CreateCampaignRequest) GetCampaignName() string {
+	if x != nil {
+		return x.CampaignName
+	}
+	return ""
+}
+
+func (x *CreateCampaignRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
 }
 
 type CreateCampaignResponse struct {
@@ -686,6 +702,8 @@ type Campaign struct {
 	TotalParticipants                  uint32                 `protobuf:"varint,17,opt,name=total_participants,json=totalParticipants,proto3" json:"total_participants,omitempty"`
 	TotalClaimed                       uint64                 `protobuf:"varint,18,opt,name=total_claimed,json=totalClaimed,proto3" json:"total_claimed,omitempty"`
 	TotalSold                          uint64                 `protobuf:"varint,19,opt,name=total_sold,json=totalSold,proto3" json:"total_sold,omitempty"`
+	CampaignName                       string                 `protobuf:"bytes,20,opt,name=campaign_name,json=campaignName,proto3" json:"campaign_name,omitempty"`
+	Description                        string                 `protobuf:"bytes,21,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields                      protoimpl.UnknownFields
 	sizeCache                          protoimpl.SizeCache
 }
@@ -851,6 +869,20 @@ func (x *Campaign) GetTotalSold() uint64 {
 		return x.TotalSold
 	}
 	return 0
+}
+
+func (x *Campaign) GetCampaignName() string {
+	if x != nil {
+		return x.CampaignName
+	}
+	return ""
+}
+
+func (x *Campaign) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
 }
 
 type DepositTokensToSaleRequest struct {
@@ -1705,7 +1737,7 @@ var File_campaigns_public_proto protoreflect.FileDescriptor
 
 const file_campaigns_public_proto_rawDesc = "" +
 	"\n" +
-	"\x16campaigns.public.proto\x12\x10campaigns.public\"\xce\x04\n" +
+	"\x16campaigns.public.proto\x12\x10campaigns.public\"\x95\x05\n" +
 	"\x15CreateCampaignRequest\x12\x1f\n" +
 	"\vcampaign_id\x18\x01 \x01(\x04R\n" +
 	"campaignId\x12)\n" +
@@ -1721,7 +1753,9 @@ const file_campaigns_public_proto_rawDesc = "" +
 	" \x01(\x03R\x0eallocationSize\x12\x19\n" +
 	"\bsoft_cap\x18\v \x01(\x04R\asoftCap\x12\x19\n" +
 	"\bhard_cap\x18\f \x01(\x04R\ahardCap\x12Q\n" +
-	"%available_allocations_per_participant\x18\r \x01(\x04R\"availableAllocationsPerParticipant\"(\n" +
+	"%available_allocations_per_participant\x18\r \x01(\x04R\"availableAllocationsPerParticipant\x12#\n" +
+	"\rcampaign_name\x18\x0e \x01(\tR\fcampaignName\x12 \n" +
+	"\vdescription\x18\x0f \x01(\tR\vdescription\"(\n" +
 	"\x16CreateCampaignResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x04R\x02id\"\xf7\n" +
 	"\n" +
@@ -1771,7 +1805,7 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"\vtotal_pages\x18\x02 \x01(\rR\n" +
 	"totalPages\x12!\n" +
 	"\fcurrent_page\x18\x03 \x01(\rR\vcurrentPage\x12\x14\n" +
-	"\x05limit\x18\x04 \x01(\rR\x05limit\"\xae\x06\n" +
+	"\x05limit\x18\x04 \x01(\rR\x05limit\"\xf5\x06\n" +
 	"\bCampaign\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x1f\n" +
 	"\vcampaign_id\x18\x02 \x01(\x04R\n" +
@@ -1795,7 +1829,9 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"\x12total_participants\x18\x11 \x01(\rR\x11totalParticipants\x12#\n" +
 	"\rtotal_claimed\x18\x12 \x01(\x04R\ftotalClaimed\x12\x1d\n" +
 	"\n" +
-	"total_sold\x18\x13 \x01(\x04R\ttotalSold\"=\n" +
+	"total_sold\x18\x13 \x01(\x04R\ttotalSold\x12#\n" +
+	"\rcampaign_name\x18\x14 \x01(\tR\fcampaignName\x12 \n" +
+	"\vdescription\x18\x15 \x01(\tR\vdescription\"=\n" +
 	"\x1aDepositTokensToSaleRequest\x12\x1f\n" +
 	"\vcampaign_id\x18\x01 \x01(\x04R\n" +
 	"campaignId\"\x1d\n" +
