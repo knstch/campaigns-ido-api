@@ -103,6 +103,7 @@ type CreateCampaignRequest struct {
 	CampaignName                       string                 `protobuf:"bytes,14,opt,name=campaign_name,json=campaignName,proto3" json:"campaign_name,omitempty"`
 	Description                        string                 `protobuf:"bytes,15,opt,name=description,proto3" json:"description,omitempty"`
 	Ticker                             string                 `protobuf:"bytes,16,opt,name=ticker,proto3" json:"ticker,omitempty"`
+	Image                              string                 `protobuf:"bytes,17,opt,name=image,proto3" json:"image,omitempty"`
 	unknownFields                      protoimpl.UnknownFields
 	sizeCache                          protoimpl.SizeCache
 }
@@ -245,6 +246,13 @@ func (x *CreateCampaignRequest) GetDescription() string {
 func (x *CreateCampaignRequest) GetTicker() string {
 	if x != nil {
 		return x.Ticker
+	}
+	return ""
+}
+
+func (x *CreateCampaignRequest) GetImage() string {
+	if x != nil {
+		return x.Image
 	}
 	return ""
 }
@@ -713,6 +721,7 @@ type Campaign struct {
 	CampaignName                       string                 `protobuf:"bytes,20,opt,name=campaign_name,json=campaignName,proto3" json:"campaign_name,omitempty"`
 	Description                        string                 `protobuf:"bytes,21,opt,name=description,proto3" json:"description,omitempty"`
 	Ticker                             string                 `protobuf:"bytes,22,opt,name=ticker,proto3" json:"ticker,omitempty"`
+	Image                              string                 `protobuf:"bytes,23,opt,name=image,proto3" json:"image,omitempty"`
 	unknownFields                      protoimpl.UnknownFields
 	sizeCache                          protoimpl.SizeCache
 }
@@ -897,6 +906,13 @@ func (x *Campaign) GetDescription() string {
 func (x *Campaign) GetTicker() string {
 	if x != nil {
 		return x.Ticker
+	}
+	return ""
+}
+
+func (x *Campaign) GetImage() string {
+	if x != nil {
+		return x.Image
 	}
 	return ""
 }
@@ -1753,7 +1769,7 @@ var File_campaigns_public_proto protoreflect.FileDescriptor
 
 const file_campaigns_public_proto_rawDesc = "" +
 	"\n" +
-	"\x16campaigns.public.proto\x12\x10campaigns.public\"\xad\x05\n" +
+	"\x16campaigns.public.proto\x12\x10campaigns.public\"\xc3\x05\n" +
 	"\x15CreateCampaignRequest\x12\x1f\n" +
 	"\vcampaign_id\x18\x01 \x01(\x04R\n" +
 	"campaignId\x12)\n" +
@@ -1772,7 +1788,8 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"%available_allocations_per_participant\x18\r \x01(\x04R\"availableAllocationsPerParticipant\x12#\n" +
 	"\rcampaign_name\x18\x0e \x01(\tR\fcampaignName\x12 \n" +
 	"\vdescription\x18\x0f \x01(\tR\vdescription\x12\x16\n" +
-	"\x06ticker\x18\x10 \x01(\tR\x06ticker\"(\n" +
+	"\x06ticker\x18\x10 \x01(\tR\x06ticker\x12\x14\n" +
+	"\x05image\x18\x11 \x01(\tR\x05image\"(\n" +
 	"\x16CreateCampaignResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x04R\x02id\"\xf7\n" +
 	"\n" +
@@ -1822,7 +1839,7 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"\vtotal_pages\x18\x02 \x01(\rR\n" +
 	"totalPages\x12!\n" +
 	"\fcurrent_page\x18\x03 \x01(\rR\vcurrentPage\x12\x14\n" +
-	"\x05limit\x18\x04 \x01(\rR\x05limit\"\x8d\a\n" +
+	"\x05limit\x18\x04 \x01(\rR\x05limit\"\xa3\a\n" +
 	"\bCampaign\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x1f\n" +
 	"\vcampaign_id\x18\x02 \x01(\x04R\n" +
@@ -1849,7 +1866,8 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"total_sold\x18\x13 \x01(\x04R\ttotalSold\x12#\n" +
 	"\rcampaign_name\x18\x14 \x01(\tR\fcampaignName\x12 \n" +
 	"\vdescription\x18\x15 \x01(\tR\vdescription\x12\x16\n" +
-	"\x06ticker\x18\x16 \x01(\tR\x06ticker\"=\n" +
+	"\x06ticker\x18\x16 \x01(\tR\x06ticker\x12\x14\n" +
+	"\x05image\x18\x17 \x01(\tR\x05image\"=\n" +
 	"\x1aDepositTokensToSaleRequest\x12\x1f\n" +
 	"\vcampaign_id\x18\x01 \x01(\x04R\n" +
 	"campaignId\"\x1d\n" +

@@ -45,6 +45,7 @@ message CreateCampaignRequest {
   string campaign_name = 14;
   string description = 15;
   string ticker = 16;
+  string image = 17;
 }
 
 message CreateCampaignResponse {
@@ -119,6 +120,7 @@ message Campaign {
   string campaign_name = 20;
   string description = 21;
   string ticker = 22;
+  string image = 23;
 }
 
 message DepositTokensToSaleRequest {
