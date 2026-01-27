@@ -2,20 +2,110 @@ syntax = "proto3";
 package campaigns.public;
 option go_package = "./";
 
+import "google/api/annotations.proto";
+
 service Campaigns {
-  rpc CreateCampaign(CreateCampaignRequest) returns (CreateCampaignResponse);
-  rpc GetCampaignsList(GetCampaignsListRequest) returns (GetCampaignsListResponse);
-  rpc DepositTokensToSale(DepositTokensToSaleRequest) returns (DepositTokensToSaleResponse);
-  rpc JoinIdo(JoinIdoRequest) returns (JoinIdoResponse);
-  rpc Claim(ClaimRequest) returns (ClaimResponse);
-  rpc Refund(RefundRequest) returns (RefundResponse);
-  rpc WithdrawFunds(WithdrawFundsRequest) returns (WithdrawFundsResponse);
-  rpc CloseCampaign(CloseCampaignRequest) returns (CloseCampaignResponse);
-  rpc WithdrawUnsoldTokens(WithdrawUnsoldTokensRequest) returns (WithdrawUnsoldTokensResponse);
-  rpc DeleteCampaign(DeleteCampaignRequest) returns (DeleteCampaignResponse);
-  rpc UpdateCampaignStatus(UpdateCampaignStatusRequest) returns (UpdateCampaignStatusResponse);
-  rpc CloseCampaignIfSoftCapNotReached(CloseCampaignIfSoftCapNotReachedRequest) returns (CloseCampaignIfSoftCapNotReachedResponse);
-  rpc GetTrendingCampaigns(GetTrendingCampaignsRequest) returns (GetTrendingCampaignsResponse);
+  // POST /createCampaign
+  rpc CreateCampaign(CreateCampaignRequest) returns (CreateCampaignResponse) {
+    option (google.api.http) = {
+      post: "/createCampaign"
+      body: "*"
+    };
+  }
+
+  // GET /getCampaignsList
+  rpc GetCampaignsList(GetCampaignsListRequest) returns (GetCampaignsListResponse) {
+    option (google.api.http) = {
+      get: "/getCampaignsList"
+    };
+  }
+
+  // POST /depositTokensToSale
+  rpc DepositTokensToSale(DepositTokensToSaleRequest) returns (DepositTokensToSaleResponse) {
+    option (google.api.http) = {
+      post: "/depositTokensToSale"
+      body: "*"
+    };
+  }
+
+  // POST /joinIdo
+  rpc JoinIdo(JoinIdoRequest) returns (JoinIdoResponse) {
+    option (google.api.http) = {
+      post: "/joinIdo"
+      body: "*"
+    };
+  }
+
+  // POST /claim
+  rpc Claim(ClaimRequest) returns (ClaimResponse) {
+    option (google.api.http) = {
+      post: "/claim"
+      body: "*"
+    };
+  }
+
+  // POST /refund
+  rpc Refund(RefundRequest) returns (RefundResponse) {
+    option (google.api.http) = {
+      post: "/refund"
+      body: "*"
+    };
+  }
+
+  // POST /withdrawFunds
+  rpc WithdrawFunds(WithdrawFundsRequest) returns (WithdrawFundsResponse) {
+    option (google.api.http) = {
+      post: "/withdrawFunds"
+      body: "*"
+    };
+  }
+
+  // POST /closeCampaign
+  rpc CloseCampaign(CloseCampaignRequest) returns (CloseCampaignResponse) {
+    option (google.api.http) = {
+      post: "/closeCampaign"
+      body: "*"
+    };
+  }
+
+  // POST /withdrawUnsoldTokens
+  rpc WithdrawUnsoldTokens(WithdrawUnsoldTokensRequest) returns (WithdrawUnsoldTokensResponse) {
+    option (google.api.http) = {
+      post: "/withdrawUnsoldTokens"
+      body: "*"
+    };
+  }
+
+  // POST /deleteCampaign
+  rpc DeleteCampaign(DeleteCampaignRequest) returns (DeleteCampaignResponse) {
+    option (google.api.http) = {
+      post: "/deleteCampaign"
+      body: "*"
+    };
+  }
+
+  // POST /updateCampaignStatus
+  rpc UpdateCampaignStatus(UpdateCampaignStatusRequest) returns (UpdateCampaignStatusResponse) {
+    option (google.api.http) = {
+      post: "/updateCampaignStatus"
+      body: "*"
+    };
+  }
+
+  // POST /closeCampaignIfSoftCapNotReached
+  rpc CloseCampaignIfSoftCapNotReached(CloseCampaignIfSoftCapNotReachedRequest) returns (CloseCampaignIfSoftCapNotReachedResponse) {
+    option (google.api.http) = {
+      post: "/closeCampaignIfSoftCapNotReached"
+      body: "*"
+    };
+  }
+
+  // GET /getTrendingCampaigns
+  rpc GetTrendingCampaigns(GetTrendingCampaignsRequest) returns (GetTrendingCampaignsResponse) {
+    option (google.api.http) = {
+      get: "/getTrendingCampaigns"
+    };
+  }
 }
 
 enum CampaignStatus {

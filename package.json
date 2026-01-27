@@ -1,0 +1,15 @@
+{
+  "name": "campaigns-ido-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API schema and generators for campaigns service (Proto -> OpenAPI -> TypeScript types)",
+  "scripts": {
+    "gen:openapi": "make -C public openapi",
+    "gen:types": "openapi-typescript public/campaigns.public.swagger.json -o public/generated/campaigns.public.ts",
+    "gen:api": "npm run gen:openapi && npm run gen:types"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^6.7.0"
+  }
+}
+
