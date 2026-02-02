@@ -5,7 +5,7 @@
   "description": "API schema and generators for campaigns service (Proto -> OpenAPI -> TypeScript types)",
   "scripts": {
     "gen:openapi": "make -C public openapi",
-    "gen:types": "openapi-typescript public/campaigns.public.swagger.json -o public/generated/campaigns.public.ts",
+    "gen:types": "npx openapi-typescript@5 public/campaigns.public.swagger.json -o public/generated/campaigns.public.ts",
     "gen:api": "npm run gen:openapi && npm run gen:types"
   },
   "devDependencies": {
