@@ -53,39 +53,39 @@ export interface definitions {
     /** Format: uint64 */
     id?: string;
     /** Format: uint64 */
-    campaignId?: string;
-    authorityPubkey?: string;
-    tokenMintPubkey?: string;
+    campaign_id?: string;
+    authority_pubkey?: string;
+    token_mint_pubkey?: string;
     /** Format: int64 */
     cliff?: string;
     /** Format: int64 */
-    availableTokensAfterCliffPtc?: number;
+    available_tokens_after_cliff_ptc?: number;
     /** Format: int64 */
-    startSaleTime?: string;
+    start_sale_time?: string;
     /** Format: int64 */
-    endSaleTime?: string;
+    end_sale_time?: string;
     /** Format: int64 */
-    vestingEndTime?: string;
+    vesting_end_time?: string;
     /** Format: uint64 */
-    pricePerTokenLamports?: string;
+    price_per_token_lamports?: string;
     /** Format: int64 */
-    allocationSize?: string;
+    allocation_size?: string;
     /** Format: uint64 */
-    softCap?: string;
+    soft_cap?: string;
     /** Format: uint64 */
-    hardCap?: string;
+    hard_cap?: string;
     /** Format: uint64 */
-    availableAllocationsPerParticipant?: string;
-    campaignStatus?: definitions["publicCampaignStatus"];
+    available_allocations_per_participant?: string;
+    campaign_status?: definitions["publicCampaignStatus"];
     /** Format: int64 */
-    createdAt?: string;
+    created_at?: string;
     /** Format: int64 */
-    totalParticipants?: number;
+    total_participants?: number;
     /** Format: uint64 */
-    totalClaimed?: string;
+    total_claimed?: string;
     /** Format: uint64 */
-    totalSold?: string;
-    campaignName?: string;
+    total_sold?: string;
+    campaign_name?: string;
     description?: string;
     ticker?: string;
     image?: string;
@@ -105,47 +105,47 @@ export interface definitions {
     | "CAMPAIGN_STATUS_FUNDS_WITHDRAWN";
   publicClaimRequest: {
     /** Format: uint64 */
-    campaignId?: string;
+    campaign_id?: string;
     /** Format: int64 */
-    claimedAmount?: string;
+    claimed_amount?: string;
   };
   publicClaimResponse: { [key: string]: unknown };
   publicCloseCampaignIfSoftCapNotReachedRequest: {
     /** Format: uint64 */
-    campaignId?: string;
+    campaign_id?: string;
   };
   publicCloseCampaignIfSoftCapNotReachedResponse: { [key: string]: unknown };
   publicCloseCampaignRequest: {
     /** Format: uint64 */
-    campaignId?: string;
+    campaign_id?: string;
   };
   publicCloseCampaignResponse: { [key: string]: unknown };
   publicCreateCampaignRequest: {
     /** Format: uint64 */
-    campaignId?: string;
-    authorityPubkey?: string;
-    tokenMintPubkey?: string;
+    campaign_id?: string;
+    authority_pubkey?: string;
+    token_mint_pubkey?: string;
     /** Format: int64 */
     cliff?: string;
     /** Format: int64 */
-    availableTokensAfterCliffPtc?: number;
+    available_tokens_after_cliff_ptc?: number;
     /** Format: int64 */
-    startSaleTime?: string;
+    start_sale_time?: string;
     /** Format: int64 */
-    endSaleTime?: string;
+    end_sale_time?: string;
     /** Format: int64 */
-    vestingEndTime?: string;
+    vesting_end_time?: string;
     /** Format: uint64 */
-    pricePerTokenLamports?: string;
+    price_per_token_lamports?: string;
     /** Format: int64 */
-    allocationSize?: string;
+    allocation_size?: string;
     /** Format: uint64 */
-    softCap?: string;
+    soft_cap?: string;
     /** Format: uint64 */
-    hardCap?: string;
+    hard_cap?: string;
     /** Format: uint64 */
-    availableAllocationsPerParticipant?: string;
-    campaignName?: string;
+    available_allocations_per_participant?: string;
+    campaign_name?: string;
     description?: string;
     ticker?: string;
     image?: string;
@@ -156,12 +156,12 @@ export interface definitions {
   };
   publicDeleteCampaignRequest: {
     /** Format: uint64 */
-    campaignId?: string;
+    campaign_id?: string;
   };
   publicDeleteCampaignResponse: { [key: string]: unknown };
   publicDepositTokensToSaleRequest: {
     /** Format: uint64 */
-    campaignId?: string;
+    campaign_id?: string;
   };
   publicDepositTokensToSaleResponse: { [key: string]: unknown };
   publicGetCampaignsListResponse: {
@@ -173,45 +173,45 @@ export interface definitions {
   };
   publicJoinIdoRequest: {
     /** Format: uint64 */
-    campaignId?: string;
-    participantPubkey?: string;
+    campaign_id?: string;
+    participant_pubkey?: string;
     /** Format: uint64 */
-    numberOfAllocations?: string;
+    number_of_allocations?: string;
     /** Format: int64 */
     amount?: string;
     /** Format: int64 */
-    paidLamports?: string;
+    paid_lamports?: string;
   };
   publicJoinIdoResponse: { [key: string]: unknown };
   publicPagination: {
     /** Format: uint64 */
-    totalCount?: string;
+    total_count?: string;
     /** Format: int64 */
-    totalPages?: number;
+    total_pages?: number;
     /** Format: int64 */
-    currentPage?: number;
+    current_page?: number;
     /** Format: int64 */
     limit?: number;
   };
   publicRefundRequest: {
     /** Format: uint64 */
-    campaignId?: string;
+    campaign_id?: string;
   };
   publicRefundResponse: { [key: string]: unknown };
   publicUpdateCampaignStatusRequest: {
     /** Format: uint64 */
-    campaignId?: string;
+    campaign_id?: string;
     status?: definitions["publicCampaignStatus"];
   };
   publicUpdateCampaignStatusResponse: { [key: string]: unknown };
   publicWithdrawFundsRequest: {
     /** Format: uint64 */
-    campaignId?: string;
+    campaign_id?: string;
   };
   publicWithdrawFundsResponse: { [key: string]: unknown };
   publicWithdrawUnsoldTokensRequest: {
     /** Format: uint64 */
-    campaignId?: string;
+    campaign_id?: string;
   };
   publicWithdrawUnsoldTokensResponse: { [key: string]: unknown };
   rpcStatus: {
@@ -329,28 +329,28 @@ export interface operations {
     parameters: {
       query: {
         id?: string;
-        campaignId?: string;
-        authorityPubkey?: string;
-        tokenMintPubkey?: string;
-        cliffFrom?: string;
-        cliffTo?: string;
-        availableTokensAfterCliffPtcFrom?: number;
-        availableTokensAfterCliffPtcTo?: number;
-        startSaleTime?: string;
-        endSaleTime?: string;
-        vestingEndTimeFrom?: string;
-        vestingEndTimeTo?: string;
-        pricePerTokenLamportsFrom?: string;
-        pricePerTokenLamportsTo?: string;
-        allocationSizeFrom?: string;
-        allocationSizeTo?: string;
-        softCapFrom?: string;
-        softCapTo?: string;
-        hardCapFrom?: string;
-        hardCapTo?: string;
-        availableAllocationsPerParticipantFrom?: string;
-        availableAllocationsPerParticipantTo?: string;
-        campaignStatus?:
+        campaign_id?: string;
+        authority_pubkey?: string;
+        token_mint_pubkey?: string;
+        cliff_from?: string;
+        cliff_to?: string;
+        available_tokens_after_cliff_ptc_from?: number;
+        available_tokens_after_cliff_ptc_to?: number;
+        start_sale_time?: string;
+        end_sale_time?: string;
+        vesting_end_time_from?: string;
+        vesting_end_time_to?: string;
+        price_per_token_lamports_from?: string;
+        price_per_token_lamports_to?: string;
+        allocation_size_from?: string;
+        allocation_size_to?: string;
+        soft_cap_from?: string;
+        soft_cap_to?: string;
+        hard_cap_from?: string;
+        hard_cap_to?: string;
+        available_allocations_per_participant_from?: string;
+        available_allocations_per_participant_to?: string;
+        campaign_status?:
           | "CAMPAIGN_STATUS_UNDEFINED"
           | "CAMPAIGN_STATUS_TOKENS_NOT_DEPOSITED"
           | "CAMPAIGN_STATUS_WAITING_FOR_START"
@@ -359,11 +359,11 @@ export interface operations {
           | "CAMPAIGN_STATUS_SALE_ENDED_FAILED"
           | "CAMPAIGN_STATUS_SALE_CLOSED_BY_OWNER"
           | "CAMPAIGN_STATUS_FUNDS_WITHDRAWN";
-        participantId?: string;
-        createdAtFrom?: string;
-        createdAtTo?: string;
-        updatedAtFrom?: string;
-        updatedAtTo?: string;
+        participant_id?: string;
+        created_at_from?: string;
+        created_at_to?: string;
+        updated_at_from?: string;
+        updated_at_to?: string;
         page?: number;
         limit?: number;
       };

@@ -14,7 +14,7 @@ openapi:
 		protoc \
 		  -I . \
 		  -I $(GOPATH)/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.16.0/third_party/googleapis \
-		  --openapiv2_out=logtostderr=true,json_names_for_fields=true,output_format=json:. \
+		  --openapiv2_out=logtostderr=true,json_names_for_fields=false,output_format=json:. \
 		  $$file; \
 	done
 

@@ -241,152 +241,152 @@
             "format": "uint64"
           },
           {
-            "name": "campaignId",
+            "name": "campaign_id",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "authorityPubkey",
+            "name": "authority_pubkey",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "tokenMintPubkey",
+            "name": "token_mint_pubkey",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "cliffFrom",
+            "name": "cliff_from",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "cliffTo",
+            "name": "cliff_to",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "availableTokensAfterCliffPtcFrom",
+            "name": "available_tokens_after_cliff_ptc_from",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "availableTokensAfterCliffPtcTo",
+            "name": "available_tokens_after_cliff_ptc_to",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "startSaleTime",
+            "name": "start_sale_time",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "endSaleTime",
+            "name": "end_sale_time",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "vestingEndTimeFrom",
+            "name": "vesting_end_time_from",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "vestingEndTimeTo",
+            "name": "vesting_end_time_to",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "pricePerTokenLamportsFrom",
+            "name": "price_per_token_lamports_from",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "pricePerTokenLamportsTo",
+            "name": "price_per_token_lamports_to",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "allocationSizeFrom",
+            "name": "allocation_size_from",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "allocationSizeTo",
+            "name": "allocation_size_to",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "softCapFrom",
+            "name": "soft_cap_from",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "softCapTo",
+            "name": "soft_cap_to",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "hardCapFrom",
+            "name": "hard_cap_from",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "hardCapTo",
+            "name": "hard_cap_to",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "availableAllocationsPerParticipantFrom",
+            "name": "available_allocations_per_participant_from",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "availableAllocationsPerParticipantTo",
+            "name": "available_allocations_per_participant_to",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "campaignStatus",
+            "name": "campaign_status",
             "in": "query",
             "required": false,
             "type": "string",
@@ -403,35 +403,35 @@
             "default": "CAMPAIGN_STATUS_UNDEFINED"
           },
           {
-            "name": "participantId",
+            "name": "participant_id",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "uint64"
           },
           {
-            "name": "createdAtFrom",
+            "name": "created_at_from",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "createdAtTo",
+            "name": "created_at_to",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "updatedAtFrom",
+            "name": "updated_at_from",
             "in": "query",
             "required": false,
             "type": "string",
             "format": "int64"
           },
           {
-            "name": "updatedAtTo",
+            "name": "updated_at_to",
             "in": "query",
             "required": false,
             "type": "string",
@@ -672,76 +672,76 @@
           "type": "string",
           "format": "uint64"
         },
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         },
-        "authorityPubkey": {
+        "authority_pubkey": {
           "type": "string"
         },
-        "tokenMintPubkey": {
+        "token_mint_pubkey": {
           "type": "string"
         },
         "cliff": {
           "type": "string",
           "format": "int64"
         },
-        "availableTokensAfterCliffPtc": {
+        "available_tokens_after_cliff_ptc": {
           "type": "integer",
           "format": "int64"
         },
-        "startSaleTime": {
+        "start_sale_time": {
           "type": "string",
           "format": "int64"
         },
-        "endSaleTime": {
+        "end_sale_time": {
           "type": "string",
           "format": "int64"
         },
-        "vestingEndTime": {
+        "vesting_end_time": {
           "type": "string",
           "format": "int64"
         },
-        "pricePerTokenLamports": {
+        "price_per_token_lamports": {
           "type": "string",
           "format": "uint64"
         },
-        "allocationSize": {
+        "allocation_size": {
           "type": "string",
           "format": "int64"
         },
-        "softCap": {
+        "soft_cap": {
           "type": "string",
           "format": "uint64"
         },
-        "hardCap": {
+        "hard_cap": {
           "type": "string",
           "format": "uint64"
         },
-        "availableAllocationsPerParticipant": {
+        "available_allocations_per_participant": {
           "type": "string",
           "format": "uint64"
         },
-        "campaignStatus": {
+        "campaign_status": {
           "$ref": "#/definitions/publicCampaignStatus"
         },
-        "createdAt": {
+        "created_at": {
           "type": "string",
           "format": "int64"
         },
-        "totalParticipants": {
+        "total_participants": {
           "type": "integer",
           "format": "int64"
         },
-        "totalClaimed": {
+        "total_claimed": {
           "type": "string",
           "format": "uint64"
         },
-        "totalSold": {
+        "total_sold": {
           "type": "string",
           "format": "uint64"
         },
-        "campaignName": {
+        "campaign_name": {
           "type": "string"
         },
         "description": {
@@ -772,11 +772,11 @@
     "publicClaimRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         },
-        "claimedAmount": {
+        "claimed_amount": {
           "type": "string",
           "format": "int64"
         }
@@ -788,7 +788,7 @@
     "publicCloseCampaignIfSoftCapNotReachedRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -800,7 +800,7 @@
     "publicCloseCampaignRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -812,57 +812,57 @@
     "publicCreateCampaignRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         },
-        "authorityPubkey": {
+        "authority_pubkey": {
           "type": "string"
         },
-        "tokenMintPubkey": {
+        "token_mint_pubkey": {
           "type": "string"
         },
         "cliff": {
           "type": "string",
           "format": "int64"
         },
-        "availableTokensAfterCliffPtc": {
+        "available_tokens_after_cliff_ptc": {
           "type": "integer",
           "format": "int64"
         },
-        "startSaleTime": {
+        "start_sale_time": {
           "type": "string",
           "format": "int64"
         },
-        "endSaleTime": {
+        "end_sale_time": {
           "type": "string",
           "format": "int64"
         },
-        "vestingEndTime": {
+        "vesting_end_time": {
           "type": "string",
           "format": "int64"
         },
-        "pricePerTokenLamports": {
+        "price_per_token_lamports": {
           "type": "string",
           "format": "uint64"
         },
-        "allocationSize": {
+        "allocation_size": {
           "type": "string",
           "format": "int64"
         },
-        "softCap": {
+        "soft_cap": {
           "type": "string",
           "format": "uint64"
         },
-        "hardCap": {
+        "hard_cap": {
           "type": "string",
           "format": "uint64"
         },
-        "availableAllocationsPerParticipant": {
+        "available_allocations_per_participant": {
           "type": "string",
           "format": "uint64"
         },
-        "campaignName": {
+        "campaign_name": {
           "type": "string"
         },
         "description": {
@@ -888,7 +888,7 @@
     "publicDeleteCampaignRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -900,7 +900,7 @@
     "publicDepositTokensToSaleRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -939,14 +939,14 @@
     "publicJoinIdoRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         },
-        "participantPubkey": {
+        "participant_pubkey": {
           "type": "string"
         },
-        "numberOfAllocations": {
+        "number_of_allocations": {
           "type": "string",
           "format": "uint64"
         },
@@ -954,7 +954,7 @@
           "type": "string",
           "format": "int64"
         },
-        "paidLamports": {
+        "paid_lamports": {
           "type": "string",
           "format": "int64"
         }
@@ -966,15 +966,15 @@
     "publicPagination": {
       "type": "object",
       "properties": {
-        "totalCount": {
+        "total_count": {
           "type": "string",
           "format": "uint64"
         },
-        "totalPages": {
+        "total_pages": {
           "type": "integer",
           "format": "int64"
         },
-        "currentPage": {
+        "current_page": {
           "type": "integer",
           "format": "int64"
         },
@@ -987,7 +987,7 @@
     "publicRefundRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -999,7 +999,7 @@
     "publicUpdateCampaignStatusRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         },
@@ -1014,7 +1014,7 @@
     "publicWithdrawFundsRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         }
@@ -1026,7 +1026,7 @@
     "publicWithdrawUnsoldTokensRequest": {
       "type": "object",
       "properties": {
-        "campaignId": {
+        "campaign_id": {
           "type": "string",
           "format": "uint64"
         }
