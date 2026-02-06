@@ -7,6 +7,7 @@
 package __
 
 import (
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -311,8 +312,6 @@ type GetCampaignsListRequest struct {
 	CliffTo                                int64                  `protobuf:"varint,6,opt,name=cliff_to,json=cliffTo,proto3" json:"cliff_to,omitempty"`
 	AvailableTokensAfterCliffPtcFrom       int32                  `protobuf:"varint,7,opt,name=available_tokens_after_cliff_ptc_from,json=availableTokensAfterCliffPtcFrom,proto3" json:"available_tokens_after_cliff_ptc_from,omitempty"`
 	AvailableTokensAfterCliffPtcTo         int32                  `protobuf:"varint,8,opt,name=available_tokens_after_cliff_ptc_to,json=availableTokensAfterCliffPtcTo,proto3" json:"available_tokens_after_cliff_ptc_to,omitempty"`
-	StartSaleTime                          int64                  `protobuf:"varint,9,opt,name=start_sale_time,json=startSaleTime,proto3" json:"start_sale_time,omitempty"`
-	EndSaleTime                            int64                  `protobuf:"varint,10,opt,name=end_sale_time,json=endSaleTime,proto3" json:"end_sale_time,omitempty"`
 	VestingEndTimeFrom                     int64                  `protobuf:"varint,11,opt,name=vesting_end_time_from,json=vestingEndTimeFrom,proto3" json:"vesting_end_time_from,omitempty"`
 	VestingEndTimeTo                       int64                  `protobuf:"varint,12,opt,name=vesting_end_time_to,json=vestingEndTimeTo,proto3" json:"vesting_end_time_to,omitempty"`
 	PricePerTokenLamportsFrom              uint64                 `protobuf:"varint,13,opt,name=price_per_token_lamports_from,json=pricePerTokenLamportsFrom,proto3" json:"price_per_token_lamports_from,omitempty"`
@@ -333,6 +332,10 @@ type GetCampaignsListRequest struct {
 	UpdatedAtTo                            int64                  `protobuf:"varint,28,opt,name=updated_at_to,json=updatedAtTo,proto3" json:"updated_at_to,omitempty"`
 	Page                                   uint32                 `protobuf:"varint,29,opt,name=page,proto3" json:"page,omitempty"`
 	Limit                                  uint32                 `protobuf:"varint,30,opt,name=limit,proto3" json:"limit,omitempty"`
+	StartSaleTimeFrom                      int64                  `protobuf:"varint,31,opt,name=start_sale_time_from,json=startSaleTimeFrom,proto3" json:"start_sale_time_from,omitempty"`
+	StartSaleTimeTo                        int64                  `protobuf:"varint,32,opt,name=start_sale_time_to,json=startSaleTimeTo,proto3" json:"start_sale_time_to,omitempty"`
+	EndSaleTimeFrom                        int64                  `protobuf:"varint,33,opt,name=end_sale_time_from,json=endSaleTimeFrom,proto3" json:"end_sale_time_from,omitempty"`
+	EndSaleTimeTo                          int64                  `protobuf:"varint,34,opt,name=end_sale_time_to,json=endSaleTimeTo,proto3" json:"end_sale_time_to,omitempty"`
 	unknownFields                          protoimpl.UnknownFields
 	sizeCache                              protoimpl.SizeCache
 }
@@ -419,20 +422,6 @@ func (x *GetCampaignsListRequest) GetAvailableTokensAfterCliffPtcFrom() int32 {
 func (x *GetCampaignsListRequest) GetAvailableTokensAfterCliffPtcTo() int32 {
 	if x != nil {
 		return x.AvailableTokensAfterCliffPtcTo
-	}
-	return 0
-}
-
-func (x *GetCampaignsListRequest) GetStartSaleTime() int64 {
-	if x != nil {
-		return x.StartSaleTime
-	}
-	return 0
-}
-
-func (x *GetCampaignsListRequest) GetEndSaleTime() int64 {
-	if x != nil {
-		return x.EndSaleTime
 	}
 	return 0
 }
@@ -573,6 +562,34 @@ func (x *GetCampaignsListRequest) GetPage() uint32 {
 func (x *GetCampaignsListRequest) GetLimit() uint32 {
 	if x != nil {
 		return x.Limit
+	}
+	return 0
+}
+
+func (x *GetCampaignsListRequest) GetStartSaleTimeFrom() int64 {
+	if x != nil {
+		return x.StartSaleTimeFrom
+	}
+	return 0
+}
+
+func (x *GetCampaignsListRequest) GetStartSaleTimeTo() int64 {
+	if x != nil {
+		return x.StartSaleTimeTo
+	}
+	return 0
+}
+
+func (x *GetCampaignsListRequest) GetEndSaleTimeFrom() int64 {
+	if x != nil {
+		return x.EndSaleTimeFrom
+	}
+	return 0
+}
+
+func (x *GetCampaignsListRequest) GetEndSaleTimeTo() int64 {
+	if x != nil {
+		return x.EndSaleTimeTo
 	}
 	return 0
 }
@@ -1857,7 +1874,7 @@ var File_campaigns_public_proto protoreflect.FileDescriptor
 
 const file_campaigns_public_proto_rawDesc = "" +
 	"\n" +
-	"\x16campaigns.public.proto\x12\x10campaigns.public\"\xc3\x05\n" +
+	"\x16campaigns.public.proto\x12\x10campaigns.public\x1a\x1cgoogle/api/annotations.proto\"\xc3\x05\n" +
 	"\x15CreateCampaignRequest\x12\x1f\n" +
 	"\vcampaign_id\x18\x01 \x01(\x04R\n" +
 	"campaignId\x12)\n" +
@@ -1879,8 +1896,7 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"\x06ticker\x18\x10 \x01(\tR\x06ticker\x12\x14\n" +
 	"\x05image\x18\x11 \x01(\tR\x05image\"(\n" +
 	"\x16CreateCampaignResponse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x04R\x02id\"\xf7\n" +
-	"\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\"\x8b\f\n" +
 	"\x17GetCampaignsListRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x1f\n" +
 	"\vcampaign_id\x18\x02 \x01(\x04R\n" +
@@ -1891,10 +1907,7 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"cliff_from\x18\x05 \x01(\x03R\tcliffFrom\x12\x19\n" +
 	"\bcliff_to\x18\x06 \x01(\x03R\acliffTo\x12O\n" +
 	"%available_tokens_after_cliff_ptc_from\x18\a \x01(\x05R availableTokensAfterCliffPtcFrom\x12K\n" +
-	"#available_tokens_after_cliff_ptc_to\x18\b \x01(\x05R\x1eavailableTokensAfterCliffPtcTo\x12&\n" +
-	"\x0fstart_sale_time\x18\t \x01(\x03R\rstartSaleTime\x12\"\n" +
-	"\rend_sale_time\x18\n" +
-	" \x01(\x03R\vendSaleTime\x121\n" +
+	"#available_tokens_after_cliff_ptc_to\x18\b \x01(\x05R\x1eavailableTokensAfterCliffPtcTo\x121\n" +
 	"\x15vesting_end_time_from\x18\v \x01(\x03R\x12vestingEndTimeFrom\x12-\n" +
 	"\x13vesting_end_time_to\x18\f \x01(\x03R\x10vestingEndTimeTo\x12@\n" +
 	"\x1dprice_per_token_lamports_from\x18\r \x01(\x04R\x19pricePerTokenLamportsFrom\x12<\n" +
@@ -1914,7 +1927,13 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"\x0fupdated_at_from\x18\x1b \x01(\x03R\rupdatedAtFrom\x12\"\n" +
 	"\rupdated_at_to\x18\x1c \x01(\x03R\vupdatedAtTo\x12\x12\n" +
 	"\x04page\x18\x1d \x01(\rR\x04page\x12\x14\n" +
-	"\x05limit\x18\x1e \x01(\rR\x05limit\"\x92\x01\n" +
+	"\x05limit\x18\x1e \x01(\rR\x05limit\x12/\n" +
+	"\x14start_sale_time_from\x18\x1f \x01(\x03R\x11startSaleTimeFrom\x12+\n" +
+	"\x12start_sale_time_to\x18  \x01(\x03R\x0fstartSaleTimeTo\x12+\n" +
+	"\x12end_sale_time_from\x18! \x01(\x03R\x0fendSaleTimeFrom\x12'\n" +
+	"\x10end_sale_time_to\x18\" \x01(\x03R\rendSaleTimeToJ\x04\b\t\x10\n" +
+	"J\x04\b\n" +
+	"\x10\vR\x0fstart_sale_timeR\rend_sale_time\"\x92\x01\n" +
 	"\x18GetCampaignsListResponse\x128\n" +
 	"\tcampaigns\x18\x01 \x03(\v2\x1a.campaigns.public.CampaignR\tcampaigns\x12<\n" +
 	"\n" +
@@ -2014,22 +2033,21 @@ const file_campaigns_public_proto_rawDesc = "" +
 	"%CAMPAIGN_STATUS_SALE_ENDED_SUCCESSFUL\x10\x04\x12%\n" +
 	"!CAMPAIGN_STATUS_SALE_ENDED_FAILED\x10\x05\x12(\n" +
 	"$CAMPAIGN_STATUS_SALE_CLOSED_BY_OWNER\x10\x06\x12#\n" +
-	"\x1fCAMPAIGN_STATUS_FUNDS_WITHDRAWN\x10\a2\xe0\n" +
-	"\n" +
-	"\tCampaigns\x12c\n" +
-	"\x0eCreateCampaign\x12'.campaigns.public.CreateCampaignRequest\x1a(.campaigns.public.CreateCampaignResponse\x12i\n" +
-	"\x10GetCampaignsList\x12).campaigns.public.GetCampaignsListRequest\x1a*.campaigns.public.GetCampaignsListResponse\x12r\n" +
-	"\x13DepositTokensToSale\x12,.campaigns.public.DepositTokensToSaleRequest\x1a-.campaigns.public.DepositTokensToSaleResponse\x12N\n" +
-	"\aJoinIdo\x12 .campaigns.public.JoinIdoRequest\x1a!.campaigns.public.JoinIdoResponse\x12H\n" +
-	"\x05Claim\x12\x1e.campaigns.public.ClaimRequest\x1a\x1f.campaigns.public.ClaimResponse\x12K\n" +
-	"\x06Refund\x12\x1f.campaigns.public.RefundRequest\x1a .campaigns.public.RefundResponse\x12`\n" +
-	"\rWithdrawFunds\x12&.campaigns.public.WithdrawFundsRequest\x1a'.campaigns.public.WithdrawFundsResponse\x12`\n" +
-	"\rCloseCampaign\x12&.campaigns.public.CloseCampaignRequest\x1a'.campaigns.public.CloseCampaignResponse\x12u\n" +
-	"\x14WithdrawUnsoldTokens\x12-.campaigns.public.WithdrawUnsoldTokensRequest\x1a..campaigns.public.WithdrawUnsoldTokensResponse\x12c\n" +
-	"\x0eDeleteCampaign\x12'.campaigns.public.DeleteCampaignRequest\x1a(.campaigns.public.DeleteCampaignResponse\x12u\n" +
-	"\x14UpdateCampaignStatus\x12-.campaigns.public.UpdateCampaignStatusRequest\x1a..campaigns.public.UpdateCampaignStatusResponse\x12\x99\x01\n" +
-	" CloseCampaignIfSoftCapNotReached\x129.campaigns.public.CloseCampaignIfSoftCapNotReachedRequest\x1a:.campaigns.public.CloseCampaignIfSoftCapNotReachedResponse\x12u\n" +
-	"\x14GetTrendingCampaigns\x12-.campaigns.public.GetTrendingCampaignsRequest\x1a..campaigns.public.GetTrendingCampaignsResponseB\x04Z\x02./b\x06proto3"
+	"\x1fCAMPAIGN_STATUS_FUNDS_WITHDRAWN\x10\a2\xdc\r\n" +
+	"\tCampaigns\x12\x7f\n" +
+	"\x0eCreateCampaign\x12'.campaigns.public.CreateCampaignRequest\x1a(.campaigns.public.CreateCampaignResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/createCampaign\x12\x84\x01\n" +
+	"\x10GetCampaignsList\x12).campaigns.public.GetCampaignsListRequest\x1a*.campaigns.public.GetCampaignsListResponse\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/getCampaignsList\x12\x93\x01\n" +
+	"\x13DepositTokensToSale\x12,.campaigns.public.DepositTokensToSaleRequest\x1a-.campaigns.public.DepositTokensToSaleResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/depositTokensToSale\x12c\n" +
+	"\aJoinIdo\x12 .campaigns.public.JoinIdoRequest\x1a!.campaigns.public.JoinIdoResponse\"\x13\x82\xd3\xe4\x93\x02\r:\x01*\"\b/joinIdo\x12[\n" +
+	"\x05Claim\x12\x1e.campaigns.public.ClaimRequest\x1a\x1f.campaigns.public.ClaimResponse\"\x11\x82\xd3\xe4\x93\x02\v:\x01*\"\x06/claim\x12_\n" +
+	"\x06Refund\x12\x1f.campaigns.public.RefundRequest\x1a .campaigns.public.RefundResponse\"\x12\x82\xd3\xe4\x93\x02\f:\x01*\"\a/refund\x12{\n" +
+	"\rWithdrawFunds\x12&.campaigns.public.WithdrawFundsRequest\x1a'.campaigns.public.WithdrawFundsResponse\"\x19\x82\xd3\xe4\x93\x02\x13:\x01*\"\x0e/withdrawFunds\x12{\n" +
+	"\rCloseCampaign\x12&.campaigns.public.CloseCampaignRequest\x1a'.campaigns.public.CloseCampaignResponse\"\x19\x82\xd3\xe4\x93\x02\x13:\x01*\"\x0e/closeCampaign\x12\x97\x01\n" +
+	"\x14WithdrawUnsoldTokens\x12-.campaigns.public.WithdrawUnsoldTokensRequest\x1a..campaigns.public.WithdrawUnsoldTokensResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/withdrawUnsoldTokens\x12\x7f\n" +
+	"\x0eDeleteCampaign\x12'.campaigns.public.DeleteCampaignRequest\x1a(.campaigns.public.DeleteCampaignResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/deleteCampaign\x12\x97\x01\n" +
+	"\x14UpdateCampaignStatus\x12-.campaigns.public.UpdateCampaignStatusRequest\x1a..campaigns.public.UpdateCampaignStatusResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/updateCampaignStatus\x12\xc7\x01\n" +
+	" CloseCampaignIfSoftCapNotReached\x129.campaigns.public.CloseCampaignIfSoftCapNotReachedRequest\x1a:.campaigns.public.CloseCampaignIfSoftCapNotReachedResponse\",\x82\xd3\xe4\x93\x02&:\x01*\"!/closeCampaignIfSoftCapNotReached\x12\x94\x01\n" +
+	"\x14GetTrendingCampaigns\x12-.campaigns.public.GetTrendingCampaignsRequest\x1a..campaigns.public.GetTrendingCampaignsResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/getTrendingCampaignsB\x04Z\x02./b\x06proto3"
 
 var (
 	file_campaigns_public_proto_rawDescOnce sync.Once

@@ -6,7 +6,7 @@ all: proto
 
 proto:
 	@for file in $(PROTO_FILES); do \
-		protoc --go_out=$(dir $$file) --go-grpc_out=$(dir $$file) -I. $$file; \
+		PATH=$$PATH:$(shell go env GOPATH)/bin protoc --go_out=$(dir $$file) --go-grpc_out=$(dir $$file) -I. -I /Users/cerepanovkonstantin/go/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.16.0/third_party/googleapis $$file; \
 	done
 
 openapi:

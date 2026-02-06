@@ -152,8 +152,9 @@ message GetCampaignsListRequest {
   int64 cliff_to = 6;
   int32 available_tokens_after_cliff_ptc_from = 7;
   int32 available_tokens_after_cliff_ptc_to = 8;
-  int64 start_sale_time = 9;
-  int64 end_sale_time = 10;
+  reserved 9, 10;
+  reserved "start_sale_time";
+  reserved "end_sale_time";
   int64 vesting_end_time_from = 11;
   int64 vesting_end_time_to = 12;
   uint64 price_per_token_lamports_from = 13;
@@ -174,6 +175,10 @@ message GetCampaignsListRequest {
   int64 updated_at_to = 28;
   uint32 page = 29;
   uint32 limit = 30;
+  int64 start_sale_time_from = 31;
+  int64 start_sale_time_to = 32;
+  int64 end_sale_time_from = 33;
+  int64 end_sale_time_to = 34;
 }
 
 message GetCampaignsListResponse {
